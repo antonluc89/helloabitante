@@ -43,7 +43,7 @@ public class InserimentoServlet extends HttpServlet {
 		String mottoDiVitaDaAggiungere = request.getParameter("mottoDiVitaInput");
 		
 		etaWithParse = Integer.parseInt(etadaAggiungere);
-		idAbitantedaAggiungereWithParse=Long.parseLong(idAbitanteDaAggiungere);
+
 		
 		destinazione = "results.jsp";
 		try {

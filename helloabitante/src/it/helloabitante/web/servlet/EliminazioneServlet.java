@@ -29,7 +29,7 @@ public class EliminazioneServlet extends HttpServlet {
 			throws NumberFormatException, ServletException, IOException {
 
 		String destinazione = null;
-		String parametroIdDellAbitanteCheVoglioEliminare = request.getParameter("idDaInviareDaEliminare");
+		String parametroIdDellAbitanteCheVoglioEliminare = request.getParameter("idDaInviareComeParametro");
 
 		AbitanteService abitanteServiceInstance = MyServiceFactory.getAbitanteServiceInstance();
 
@@ -38,9 +38,10 @@ public class EliminazioneServlet extends HttpServlet {
 			Abitante abitanteDaEliminare = abitanteServiceInstance
 					.cercaPerId(Long.parseLong(parametroIdDellAbitanteCheVoglioEliminare));
 			MyServiceFactory.getAbitanteServiceInstance().elimina(abitanteDaEliminare);
-
+		
 			String rimozioneRiuscita = ("Abitante con id: " + abitanteDaEliminare.getIdAbitante() + "eliminato");
 			request.setAttribute("rimozioneRiuscita", rimozioneRiuscita);
+			request.setAttribute("listAbitantiAttributeName", MyServiceFactory.getAbitanteServiceInstance().listAbitanti());
 			destinazione = "results.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(destinazione);
 			rd.forward(request, response);

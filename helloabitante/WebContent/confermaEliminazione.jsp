@@ -25,24 +25,20 @@
 <body>
 
 	<table class="center">
-		
-		<% Abitante abitanteItem=(Abitante)request.getAttribute("abitanteDaRimuovere");%>
-	
-            <tr>
-            
-                <td width="5%"><%=abitanteItem.getIdAbitante() %></td>
-				<td width="20%"><%=abitanteItem.getNome() %></td>
-				<td width="20%"><%=abitanteItem.getCognome() %></td>
-				<td width="20%"><%=abitanteItem.getEta() %></td>
-				<td width="20%"><%=abitanteItem.getMottoDiVita() %></td>
+
+		<%
+			Abitante abitanteItem = (Abitante) request.getAttribute("abitanteDaRimuovere");
+		%>
 
 
-  	<form action="EliminazioneServlet" method="post">
-       <td width="20%"> <input type="submit" name="idDaInviareDaEliminare" value="Delete" /></td>
-        <input type="hidden" name="idDaInviareDaEliminare" value="<%=abitanteItem.getIdAbitante()%>" />
-    </form>
+		<h1>
+			Vuoi proprio eliminare l'abitante con id:<%=abitanteItem.getIdAbitante()%></h1>
 
-	</table>
+		<form action="EliminazioneServlet?idDaInviareComeParametro=<%=abitanteItem.getIdAbitante() %>" method="post">
+
+<input type="submit" value="Elimina">
+</form>
+
 	
 	
 </body>
