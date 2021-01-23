@@ -43,7 +43,12 @@ public class AbitanteDAOImpl implements AbitanteDAO {
 
 	@Override
 	public int update(Abitante input) throws Exception {
-		return 0;
+		List<Abitante> list=this.list();
+		Abitante abitanteDaAggiornare=this.get(input.getIdAbitante());
+		list.remove(abitanteDaAggiornare);
+		list.add(input);
+		
+		return 1;
 	}
 
 	@Override
@@ -56,10 +61,9 @@ public class AbitanteDAOImpl implements AbitanteDAO {
 
 	@Override
 	public int delete(Abitante input) throws Exception {
-		for (Abitante abitanteItem : DB_Mock.LISTA_ABITANTI) {
-			if (abitanteItem.getIdAbitante().equals((input).getIdAbitante()))
+		
 				DB_Mock.LISTA_ABITANTI.remove(input);
-		}
+		
 		return 1;
 	}
 

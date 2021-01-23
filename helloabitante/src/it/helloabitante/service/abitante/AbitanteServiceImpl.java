@@ -44,7 +44,7 @@ public class AbitanteServiceImpl implements AbitanteService {
 	@Override
 	public int aggiorna(Abitante input) throws Exception {
 		abitanteDAO.update(input);
-		return 0;
+		return 1;
 	}
 
 }
