@@ -30,7 +30,7 @@ public class ModificaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String destinazione = null;
 
-		String parametroIdDellAbitanteCheVoglioModificare = request.getParameter("idDaInviareComeParametro");
+		String parametroIdDellAbitanteCheVoglioModificare = request.getParameter("parametroId");
 		
 		AbitanteService abitanteServiceInstance = MyServiceFactory.getAbitanteServiceInstance();
 
